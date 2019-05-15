@@ -16,7 +16,7 @@
 <header>
     <nav>
       <ul>
-        <li><a href="#" class={% if request.path == '/blog/posts' %}active{%endif%}>Posts</a></li>
+        <li><a href="{% url 'posts_list_url' %}" class={% if request.path == '/blog/posts' %}active{%endif%}>Posts</a></li>
         <li><a href="#" class={% if request.path == 'blog/tags'%}active{%endif%}>Tags</a></li>
         <li><a href="#" class={% if request.path == 'blog/posts/create'%}active{%endif%}>Create post</a></li>
         <li><a href="#" class={% if request.path == 'blog/tag/create'%}active{%endif%}>Create tag</a></li>

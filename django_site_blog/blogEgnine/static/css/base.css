@@ -1,4 +1,8 @@
 
+body{
+  background-image: url(../img/posts_list_background.jpg);
+}
+
 header{
   width: 100%;
   height: 70px;
@@ -8,6 +12,7 @@ header{
   background: black;
   color: white;
   border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 70px;
 }
 
 header nav{

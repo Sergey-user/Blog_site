@@ -1,11 +1,6 @@
 
-body{
-  background-image: url(../img/posts_list_background.jpg);
-}
-
 
 main{
-  margin-top: 70px;
   display: flex;
   justify-content: center;
   width: 100%;
