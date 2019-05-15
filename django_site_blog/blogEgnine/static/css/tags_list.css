@@ -1,0 +1,28 @@
+
+main{
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.tags_list{
+  display: flex;
+  flex-direction: column;
+}
+
+main h3{
+  color: white
+}
+
+.tags_list a{
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+
+.tags_list a:hover{
+  font-size: 22px;
+  color: purple;
+}
