@@ -1,43 +1,6 @@
 
-
 main{
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.post_card{
-  border: 1px solid #d5d5d5;
-  font-size: 30px;
-  width: 450px;
-  height: 180px;
-}
-
-.post_header{
-  background: #eeeeee;
-  font-size: 25px;
-  padding: 5px;
-  padding-left: 10px;
-  border-bottom: 1px solid #d5d5d5;
-  margin-bottom: 10px;
-}
-
-.post_content{
-  padding-left: 10px;
-  color: white;
-}
-
-
-.post_content p{
-  margin-top: 15px;
-  margin-bottom: 20px;
-}
-
-.post_content a{
-  border: 1px solid green;
-  border-radius: 5px;
-  background: green;
-  color: white;
-  text-decoration: none;
-  padding: 5px;
 }

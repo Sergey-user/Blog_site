@@ -2,6 +2,7 @@
 {% load static %}
 {% block link %}
 <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/post_card_template.css' %}">
 
 {% endblock %}
 
@@ -15,14 +16,5 @@
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
   </main>
-
-
-
-
-
-
-
-
-
-
+  
 {% endblock %}
