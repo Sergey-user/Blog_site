@@ -1,12 +1,13 @@
 
 header{
   width: 100%;
-  height: 50px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: black;
   color: white;
+  border-bottom: 1px solid #d5d5d5;
 }
 
 header nav{
@@ -16,18 +17,43 @@ header nav{
 header ul{
   display: flex;
   justify-content: space-around;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 header a{
   color: white;
   text-decoration: none;
   font-family: 'Courier New';
+  transition: 0.3s;
 
 }
 
-.active{
+.active, header a:hover{
   border-top: 1px solid green;
   border-bottom: 1px solid green;
   padding: 3px 0;
+}
+
+.search{
+  margin-right: 20px;
+}
+
+.search button{
+  height: 40px;
+  border: 1px solid green;
+  border-radius: 5px;
+  background: green;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.search input{
+  height: 40px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
 }

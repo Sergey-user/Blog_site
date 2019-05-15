@@ -1,6 +1,11 @@
 
+body{
+  background-image: url(../img/posts_list_background.jpg);
+}
+
+
 main{
-  margin-top: 20px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -9,8 +14,8 @@ main{
 .post_card{
   border: 1px solid #d5d5d5;
   font-size: 30px;
-  width: 400px;
-  height: 170px;
+  width: 450px;
+  height: 180px;
 }
 
 .post_header{
@@ -24,12 +29,13 @@ main{
 
 .post_content{
   padding-left: 10px;
+  color: white;
 }
 
 
 .post_content p{
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .post_content a{
