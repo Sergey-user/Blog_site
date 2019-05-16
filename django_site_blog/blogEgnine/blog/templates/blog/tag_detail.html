@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block link %}
+
+<link rel="stylesheet" href="{% static 'css/post_card_template.css' %}">
+{% endblock %}
+
+{% block title %}
+  {{ tag.title }}
+{% endblock %}
+
+{% block content %}
+
+  <main style= 'display: flex; align-items: center; flex-direction: column; width: 100%;'>
+    <h3 style='color: white; font-size: 50px; margin-bottom:60px;'>Posts with "{{ tag.title }}" tag:</h3>
+    {% for post in tag.posts.all %}
+      {% include 'blog/includes/post_card_template.html' %}
+    {% endfor %}
+  </main>
+
+{% endblock %}

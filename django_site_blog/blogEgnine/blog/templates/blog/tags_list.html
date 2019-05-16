@@ -15,8 +15,8 @@
     <h3>Tags:</h3>
     <div class="tags_list">
       {% for tag in tags %}
-        <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+        <a href="{{ tag.get_absolute_url }}">#{{ tag.title }}</a>
     </div>
   </main>
-
+      {% endfor %}
 {% endblock %}
