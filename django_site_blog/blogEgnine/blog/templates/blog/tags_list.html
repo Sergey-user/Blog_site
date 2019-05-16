@@ -1,8 +1,9 @@
 {% extends 'blog/base.html' %}
-{% load static %}
-{% block link %}
 
-  <link rel="stylesheet" href="{% static 'css/tags_list.css' %}">
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/tags_list.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -16,7 +17,8 @@
     <div class="tags_list">
       {% for tag in tags %}
         <a href="{{ tag.get_absolute_url }}">#{{ tag.title }}</a>
+      {% endfor %}
     </div>
   </main>
-      {% endfor %}
+
 {% endblock %}
