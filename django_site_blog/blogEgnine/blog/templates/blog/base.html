@@ -32,6 +32,15 @@
 {% block content %}
 {% endblock %}
 
+  <div class="admin_panel">
+      <a href="/admin">Admin</a>
+      <a href="{% url 'post_create_url' %}">Create post</a>
+      <a href="{% url 'tag_create_url' %}">Create tag</a>
+      <a href="#">Update</a>
+      <a href="#">Delete</a>
+  </div>
+
+
 
 </body>
 </html>
