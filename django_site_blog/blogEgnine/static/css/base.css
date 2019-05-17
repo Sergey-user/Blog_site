@@ -43,7 +43,7 @@ header a{
   margin-right: 20px;
 }
 
-.search button{
+.search button, .admin_panel a{
   height: 40px;
   border: 1px solid green;
   border-radius: 5px;
@@ -61,4 +61,15 @@ header a{
   padding: 5px;
   border: 1px solid white;
   border-radius: 5px;
+}
+
+.admin_panel{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+}
+
+.admin_panel a{
+  color: red;
 }
