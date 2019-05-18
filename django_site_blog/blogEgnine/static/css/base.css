@@ -103,3 +103,7 @@ header a{
   background: red;
   color: white;
 }
+
+.admin_panel .btn_delete:hover{
+  color: red;
+}

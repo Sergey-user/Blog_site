@@ -1,0 +1,43 @@
+
+.form{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  font-family: 'Courier New';
+}
+
+.form a{
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+
+.form button, .form a{
+  border: 1px solid red;
+  border-radius: 5px;
+  background: red;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  font-family: 'Courier New';
+  transition: 0.5s;
+}
+
+.form a{
+  background: blue;
+  border: 1px solid blue;
+}
+
+.form a:hover{
+  border: 1px solid red;
+  background: red;
+}
+
+.form button:hover{
+  background: blue;
+  border: 1px solid blue;
+}

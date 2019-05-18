@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from blog.models import Post, Tag
 from django.views.generic import View
 from blog.forms import TagForm, PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 def posts_list(request):
@@ -23,10 +24,11 @@ def tag_detail(request, slug):
     return render(request, 'blog/tag_detail.html', context={'tag':tag, 'object_for_admin':tag, 'admin_detail':True})
 
 
-class TagCreate(View):
+class TagCreate(LoginRequiredMixin, View):
     def get(self, request):
         form = TagForm()
         return render(request, 'blog/tag_create_form.html', context={'form':form})
+        raise_exception = True
 
     def post(self, request):
         bound_form = TagForm(request.POST)
@@ -36,11 +38,12 @@ class TagCreate(View):
         return render(request, 'blog/tag_create_form.html', context={'form':bound_form})
 
 
-class TagUpdate(View):
+class TagUpdate(LoginRequiredMixin, View):
     def get(self, request, slug):
         tag = Tag.objects.get(slug__iexact=slug)
         bound_form = TagForm(instance=tag)
         return render(request, 'blog/tag_update_form.html', context={'form':bound_form, 'tag':tag})
+        raise_exception = True
 
     def post(self, request, slug):
         tag = Tag.objects.get(slug__iexact=slug)
@@ -50,11 +53,23 @@ class TagUpdate(View):
             return redirect(update_tag)
         return render(request, 'blog/tag_update_form.html', context={'form':bound_form, 'tag':tag})
 
+class TagDelete(LoginRequiredMixin, View):
+    def get(self, request, slug):
+        tag = Tag.objects.get(slug__iexact=slug)
+        return render(request, 'blog/tag_delete_form.html', context={'tag':tag})
+        raise_exception = True
 
-class PostCreate(View):
+    def post(self, request, slug):
+        tag = Tag.objects.get(slug__iexact=slug)
+        tag.delete()
+        return redirect(reverse('tags_list_url'))
+
+
+class PostCreate(LoginRequiredMixin, View):
     def get(self, request):
         form = PostForm()
         return render(request, 'blog/post_create_form.html', context={'form':form})
+        raise_exception = True
 
     def post(self, request):
         bound_form = PostForm(request.POST)
@@ -64,11 +79,12 @@ class PostCreate(View):
         return render(request, 'blog/post_create_form.html', context={'form':bound_form})
 
 
-class PostUpdate(View):
+class PostUpdate(LoginRequiredMixin, View):
     def get(self, request, slug):
         post = Post.objects.get(slug__iexact=slug)
         bound_form = PostForm(instance=post)
         return render(request, 'blog/post_update_form.html', context={'form':bound_form, 'post':post})
+        raise_exception = True
 
     def post(self, request, slug):
         post = Post.objects.get(slug__iexact=slug)
@@ -79,10 +95,11 @@ class PostUpdate(View):
         return render(request, 'blog/post_update_form.html')
 
 
-class PostDelete(View):
+class PostDelete(LoginRequiredMixin, View):
     def get(self, request, slug):
         post = Post.objects.get(slug__iexact=slug)
         return render(request, 'blog/post_delete_form.html', context={'post':post})
+        raise_exception = True
 
     def post(self, request, slug):
         post = Post.objects.get(slug__iexact=slug)

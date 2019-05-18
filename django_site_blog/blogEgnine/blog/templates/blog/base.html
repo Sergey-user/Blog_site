@@ -32,14 +32,15 @@
 {% block content %}
 {% endblock %}
 
-  <div class="admin_panel">
-      <a href="/admin" class="btn_admin">Admin</a>
-      <a href="{% url 'post_create_url' %}">Create post</a>
-      <a href="{% url 'tag_create_url' %}">Create tag</a>
-      <a href="{{ object_for_admin.get_update_url }}" style='{% if not admin_detail %}display:none;{% endif %}'>Update</a>
-      <a href="#" class="btn_delete" style='{% if not admin_detail %}display:none;{% endif %}'>Delete</a>
-  </div>
-
+  {% if request.user.is_authenticated and request.user.is_staff %}
+    <div class="admin_panel">
+        <a href="/admin" class="btn_admin">Admin</a>
+        <a href="{% url 'post_create_url' %}">Create post</a>
+        <a href="{% url 'tag_create_url' %}">Create tag</a>
+        <a href="{{ object_for_admin.get_update_url }}" style='{% if not admin_detail %}display:none;{% endif %}'>Update</a>
+        <a href="{{ object_for_admin.get_delete_url }}" class="btn_delete" style='{% if not admin_detail %}display:none;{% endif %}'>Delete</a>
+    </div>
+  {% endif %}
 
 
 </body>

@@ -9,11 +9,11 @@
 {% block content %}
 
 <main>
-  <form action="{{ post.get_delete_url }}" method="post">
+  <form action="{{ tag.get_delete_url }}" method="post">
     {% csrf_token %}
     <div class="form">
-      <h3>Are you sure to delete "{{ post.title|title }}" post?</h3>
-      <a href="{{ post.get_absolute_url }}">Cancel</a>
+      <h3>Are you sure to delete "{{ tag.title|title }}" tag?</h3>
+      <a href="{{ tag.get_absolute_url }}">Cancel</a>
       <button type="submit" name="button">Delete</button>
     </div>
   </form>
