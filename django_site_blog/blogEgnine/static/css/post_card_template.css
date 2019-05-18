@@ -2,6 +2,7 @@
   border: 1px solid #d5d5d5;
   font-size: 30px;
   width: 450px;
+  margin-bottom: 100px;
 }
 
 .post_header{
@@ -31,8 +32,12 @@
   color: white;
   text-decoration: none;
   padding: 5px;
+  transition: 0.5s;
 }
 
+.post_content a:hover{
+  background: blue;
+}
 
 .post_footer{
   display: flex;

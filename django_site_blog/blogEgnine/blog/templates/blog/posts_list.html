@@ -11,10 +11,11 @@
 
 {% block content %}
 
-  <main>
+    <div class="posts_list">
+      <h2>Posts:</h2>
     {% for post in posts %}
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
-  </main>
-  
+    </div>
+
 {% endblock %}

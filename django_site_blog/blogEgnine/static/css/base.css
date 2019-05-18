@@ -43,7 +43,7 @@ header a{
   margin-right: 20px;
 }
 
-.search button, .admin_panel a{
+.search button{
   height: 40px;
   border: 1px solid green;
   border-radius: 5px;
@@ -66,10 +66,40 @@ header a{
 .admin_panel{
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   right: 20px;
+  bottom: 20px;
+  border: 1px solid #d5d5d5;
+  padding: 15px;
+  opacity: 0.3;
+}
+
+.admin_panel:hover{
+  opacity: 1;
 }
 
 .admin_panel a{
-  color: red;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  background: #e4e4e4;
+  margin-bottom: 5px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.admin_panel a:hover{
+  background: white;
+}
+
+.admin_panel .btn_admin{
+  border: 2px solid #25efec;
+  color: #25efec;
+  background: white;
+}
+
+.admin_panel .btn_delete{
+  background: red;
+  color: white;
 }
