@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/tag&post_create&update.css' %}">
+{% endblock %}
+
+
+{% block title %}
+  Tag create
+{% endblock %}
+
+{% block content %}
+
+  <main>
+    <form action="{% url 'category_create_url' %}" method='post'>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form_group">
+          {{ field.label }}
+          {{ field }}
+        </div>
+        {% if field.errors %}
+          <div class="danger">
+            {{ field.errors }}
+          </div>
+        {% endif %}
+      {% endfor %}
+      <button type='submit' class='form_btn'>Create category</button>
+    </form>
+  </main>
+
+
+{% endblock %}

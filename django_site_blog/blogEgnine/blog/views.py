@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, reverse
-from blog.models import Post, Tag
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from blog.models import *
 from django.views.generic import View
-from blog.forms import TagForm, PostForm
+from blog.forms import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
@@ -11,7 +11,7 @@ def posts_list(request):
 
 
 def post_detail(request, slug):
-    post = Post.objects.get(slug__iexact=slug)
+    post = get_object_or_404(Post, slug__iexact=slug)
     return render(request, 'blog/post_detail.html', context={'post':post, 'object_for_admin':post, 'admin_detail':True})
 
 
@@ -20,7 +20,7 @@ def tags_list(request):
     return render(request, 'blog/tags_list.html', context={'tags':tags})
 
 def tag_detail(request, slug):
-    tag = Tag.objects.get(slug__iexact=slug)
+    tag = get_object_or_404(Tag, slug__iexact=slug)
     return render(request, 'blog/tag_detail.html', context={'tag':tag, 'object_for_admin':tag, 'admin_detail':True})
 
 
@@ -105,3 +105,21 @@ class PostDelete(LoginRequiredMixin, View):
         post = Post.objects.get(slug__iexact=slug)
         post.delete()
         return redirect(reverse('posts_list_url'))
+
+
+class CategoryCreate(View):
+    def get(self, request):
+        form = CategoryForm()
+        return render(request, 'blog/category_create_form.html', context={'form':form})
+
+    def post(self, request):
+        bound_form = CategoryForm(request.POST)
+        if bound_form.is_valid():
+            new_category = bound_form.save()
+            return redirect(new_category)
+        return render(request, 'blog/category_create_form.html', context={'form':bound_form})
+
+
+def category_detail(request, slug):
+    category = Category.objects.get(slug__iexact=slug)
+    return render(request, 'blog/category_detail.html', context={'category':category})

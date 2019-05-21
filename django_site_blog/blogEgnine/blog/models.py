@@ -8,6 +8,7 @@ class Post(models.Model):
     body = models.TextField(blank=True, db_index=True)
     datetime = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField('Tag', blank=True, related_name='posts')
+    category = models.ManyToManyField('Category', blank=True, related_name='posts')
 
 
     def get_absolute_url(self):
@@ -34,6 +35,17 @@ class Tag(models.Model):
 
     def get_delete_url(self):
         return reverse('tag_delete_url', kwargs={'slug':self.slug})
+
+    def __str__(self):
+        return self.title
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
+
+    def get_absolute_url(self):
+        return reverse('category_detail_url', kwargs={'slug':self.slug})
 
     def __str__(self):
         return self.title
