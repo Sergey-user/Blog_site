@@ -18,6 +18,7 @@
       <ul>
         <li><a href="{% url 'posts_list_url' %}" class={% if request.path == '/blog/posts' %}active{%endif%}>Posts</a></li>
         <li><a href="{% url 'tags_list_url' %}" class={% if request.path == '/blog/tags'%}active{%endif%}>Tags</a></li>
+        <li><a href="{% url 'category_list_url' %}" class={% if request.path == '/blog/category'%}active{%endif%}>Category</a></li>
         <li><a href="{% url 'post_create_url' %}" class={% if request.path == 'blog/posts/create'%}active{%endif%}>Create post</a></li>
         <li><a href="{% url 'tag_create_url' %}" class={% if request.path == 'blog/tag/create'%}active{%endif%}>Create tag</a></li>
       </ul>
@@ -37,6 +38,7 @@
         <a href="/admin" class="btn_admin">Admin</a>
         <a href="{% url 'post_create_url' %}">Create post</a>
         <a href="{% url 'tag_create_url' %}">Create tag</a>
+        <a href="{% url 'category_create_url' %}">Create category</a>
         <a href="{{ object_for_admin.get_update_url }}" style='{% if not admin_detail %}display:none;{% endif %}'>Update</a>
         <a href="{{ object_for_admin.get_delete_url }}" class="btn_delete" style='{% if not admin_detail %}display:none;{% endif %}'>Delete</a>
     </div>

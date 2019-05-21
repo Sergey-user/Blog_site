@@ -120,6 +120,11 @@ class CategoryCreate(View):
         return render(request, 'blog/category_create_form.html', context={'form':bound_form})
 
 
+def category_list(request):
+    category_list = Category.objects.all()
+    return render(request, 'blog/category_list.html', context={'category_list':category_list})
+
+
 def category_detail(request, slug):
     category = Category.objects.get(slug__iexact=slug)
     return render(request, 'blog/category_detail.html', context={'category':category})
